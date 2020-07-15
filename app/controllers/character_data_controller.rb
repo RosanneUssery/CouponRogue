@@ -1,4 +1,4 @@
-class CharactersController < ApplicationController
+class CharacterDataController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
 
   # GET /characters
@@ -70,6 +70,6 @@ class CharactersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:name, :health, :discount)
+      params.require(:character).permit(:health, :level)
     end
 end

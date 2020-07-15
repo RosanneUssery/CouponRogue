@@ -1,21 +1,22 @@
 class GameController < ApplicationController
-MAX_PLAYER_HITPOINTS = 100
-MAX_COUPONS_REDEEMED = 100
+  STARTING_PLAYER_HITPOINTS = 100
+  MAX_COUPONS_REDEEMED = 100
 
     def initialize
-      @coupons_redeemed = 0
+      @character = Character.new
       start_game
     end
 
     def start_game
       while true
-        puts "You have redeemed #{@coupons_redeemed} coupons."
-        @steps_taken += 1
+        #do something
       end
     end
-  end
 
-  Game.new
+    def game_over
+      puts "Game Over! Whomp whomp"
+      exit
+    end
 
-
+  GameController.new
 end
