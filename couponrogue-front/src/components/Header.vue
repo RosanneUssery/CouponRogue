@@ -2,16 +2,17 @@
   <header class="bg-grey-lighter py-4">
     <div class="container m-auto flex flex-wrap items-center justify-end">
       <div class="flex-1 flex items-center">
-<!--        <svg class="fill-current text-indigo" viewBox="0 0 24 24" width="24" height="24"><title>record vinyl</title><path d="M23.938 10.773a11.915 11.915 0 0 0-2.333-5.944 12.118 12.118 0 0 0-1.12-1.314A11.962 11.962 0 0 0 12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12c0-.414-.021-.823-.062-1.227zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path></svg>-->
 
-        <a href="/" class="uppercase text-sm font-mono pl-4 font-semibold no-underline text-indigo-dark hover:text-indigo-darker">Coupon Rogue</a>
+        <a href="/" class="uppercase text-lg-center font-mono pl-4 font-semibold no-underline text-indigo-dark hover:text-indigo-darker">Coupon Rogue</a>
       </div>
       <div>
-        <router-link to="/" class="link-grey px-2 no-underline" v-if="!signedIn()">Log in</router-link>
-        <router-link to="/signup" class="link-grey px-2 no-underline" v-if="!signedIn()">Sign Up</router-link>
-        <router-link to="/newgame" class="link-grey px-2 no-underline" v-if="signedIn()">New Game</router-link>
-        <router-link to="/stats" class="link-grey px-2 no-underline" v-if="signedIn()">Your Stats</router-link>
-        <a href="#" @click.prevent="signOut" class="link-grey px-2 no-underline" v-if="signedIn()">Log out</a>
+        <b-button variant="dark"><router-link to="/" class="link-grey px-2 no-underline" v-if="!signedIn()">Log in</router-link></b-button>
+        <router-link to="/signup" class="link-grey px-2 no-underline" v-if="!signedIn()">
+          <Test/>
+        </router-link>
+        <router-link to="/newgame" class="link-grey px-2 no-underline" v-if="signedIn()"><b-button variant="dark">New Game</b-button></router-link>
+        <b-button variant="dark"><router-link to="/stats" class="link-grey px-2 no-underline" v-if="signedIn()">Your Stats</router-link></b-button>
+        <b-button variant="dark"><a href="#" @click.prevent="signOut" class="link-grey px-2 no-underline" v-if="signedIn()">Log out</a></b-button>
       </div>
     </div>
   </header>
