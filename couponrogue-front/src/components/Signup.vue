@@ -59,7 +59,7 @@
         localStorage.csrf = response.data.csrf
         localStorage.signedIn = true
         this.error = ''
-        this.$router.replace('/records')
+        this.$router.replace('/newgame')
       },
       signupFailed (error) {
         this.error = (error.response && error.response.data && error.response.data.error) || 'Something went wrong'
@@ -68,7 +68,7 @@
       },
       checkedSignedIn () {
         if (localStorage.signedIn) {
-          this.$router.replace('/records')
+          this.$router.replace('/newgame')
         }
       }
     }

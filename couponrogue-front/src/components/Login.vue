@@ -51,7 +51,7 @@
         localStorage.csrf = response.data.csrf
         localStorage.signedIn = true
         this.error = ''
-        this.$router.replace('/records')
+        this.$router.replace('/newgame')
       },
       loginFailed (error) {
         this.error = (error.response && error.response.data && error.response.data.error) || ''
@@ -60,7 +60,7 @@
       },
       checkLoggedIn () {
         if (localStorage.signedIn) {
-          this.$router.replace('/records')
+          this.$router.replace('/newgame')
         }
       }
     }

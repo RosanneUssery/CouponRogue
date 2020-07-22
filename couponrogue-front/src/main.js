@@ -7,6 +7,7 @@ import VueAxios from 'vue-axios'
 import { securedAxiosInstance, plainAxiosInstance } from './backend/axios'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 // import './main.css' // tailwind
+import Vuex from "vuex"
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, {
@@ -19,12 +20,28 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+// state management pattern + library for Vue.js applications
+Vue.use(Vuex)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store: store,
   router,
   securedAxiosInstance,
   plainAxiosInstance,
   components: { App },
   template: '<App/>'
+})
+
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment(state) {
+      state.count++
+    }
+  }
+
 })
