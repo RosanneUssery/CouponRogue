@@ -9,6 +9,8 @@ You will guide your `@` character through randomly generated levels, finding `$`
 
 ![Gameplay image](GameView.png)
 
+The wireframe for the web application can be [viewed and commented on here](https://app.lucidchart.com/invitations/accept/1ebd0ae7-f540-4bc9-b1dd-8aac284a5e28).
+
 # What is a Roguelike Game?
 In 1980, the game [Rogue](https://en.wikipedia.org/wiki/Roguelike) became one of the first of its kind: a dungeon crawler game with procedurally generated levels, turn based gameplay, tile-based graphics, and permanent death of the player character.
 Today many games such as Angband, Moria, and even Diablo have followed this pattern and so too will `Coupon Rogue`!
