@@ -1,6 +1,6 @@
 # couponrogue-front
 
-> A vue.js front-end app for a RoR backend app
+> A vue.js front-end for a RoR backend app
 
 #To-Do
 * Implement `vuex` plugin to globally manage state for login/logout
@@ -10,7 +10,10 @@
 * Create a Game vue file (for game in progress and to hold the logic for the game). This one may be _chonky_.
 * Determine/research how we want to do random level generation logic for the game
 * Set up game logic and monster logic
+* Learn how to write tests for Vue and work on TDD
 * Hook up Character from back end to NewGame page for character creation (code to spin up health/discount within parameters and input from user to name character, plus initialize to level 1 for player level and level 0 for game level)
+* ???
+* Success!
 
 
 
