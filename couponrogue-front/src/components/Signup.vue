@@ -7,7 +7,7 @@
 
         <div class="mb-6">
           <label for="userName" class="label">E-mail Address</label>
-          <input type="email" v-model="userName" class="input" id="userName" placeholder="andy@web-crunch.com">
+          <input type="email" v-model="userName" class="input" id="userName" placeholder="youremail@here">
         </div>
 
         <div class="mb-6">
@@ -19,7 +19,7 @@
           <label for="password_confirmation" class="label">Password Confirmation</label>
           <input type="password" v-model="password_confirmation" class="input" id="password_confirmation" placeholder="Password Confirmation">
         </div>
-        <button type="submit" class="font-sans font-bold px-4 rounded cursor-pointer no-underline bg-green hover:bg-green-dark block w-full py-4 text-white items-center justify-center">Sign Up</button>
+        <button type="submit">Sign Up</button>
 
         <div class="my-4"><router-link to="/" class="link-grey">Sign In</router-link></div>
       </form>
@@ -35,7 +35,8 @@
         userName: '',
         password: '',
         password_confirmation: '',
-        error: ''
+        error: '',
+        componentKey: 0,
       }
     },
     created () {
@@ -55,9 +56,9 @@
           this.signupFailed(response)
           return
         }
-
         localStorage.csrf = response.data.csrf
         localStorage.signedIn = true
+        this.$store.commit("logInUser")
         this.error = ''
         this.$router.replace('/newgame')
       },

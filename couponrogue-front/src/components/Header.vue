@@ -8,11 +8,11 @@
 
       </div>
       <div>
-        <router-link to="/" v-if="!signedIn()"><button>Log in</button></router-link>
-        <router-link to="/signup" class="link-grey px-2 no-underline" v-if="!signedIn()"><button>Sign Up</button></router-link>
-        <router-link to="/newgame" class="link-grey px-2 no-underline" v-if="signedIn()"><b-button variant="dark">New Game</b-button></router-link>
-        <router-link to="/stats" class="link-grey px-2 no-underline" v-if="signedIn()"><button>Your Stats</button></router-link>
-        <a href="#" @click.prevent="signOut" v-if="signedIn()"><button>Log out</button></a>
+        <router-link to="/" v-if="!checkSignIn" ><button>Log in</button></router-link>
+        <router-link to="/signup" v-if="!checkSignIn"><button>Sign Up</button></router-link>
+        <router-link to="/newgame" v-if="checkSignIn" ><button>New Game</button></router-link>
+        <router-link to="/stats"  v-if="checkSignIn" ><button>Your Stats</button></router-link>
+        <a href="#" @click.prevent="signOut" v-if="checkSignIn"><button>Log out</button></a>
       </div>
     </div>
   </header>
@@ -21,8 +21,14 @@
 <script>
   export default {
     name: 'Header',
-    created () {
-      this.signedIn()
+    // created: function () {
+    //   console.log(this.$store.state.loggedIn)
+    //   this.checkSignIn()
+    // },
+    computed: {
+      checkSignIn () {
+        return this.$store.state.loggedIn
+      }
     },
     methods: {
       setError (error, text) {
@@ -34,6 +40,7 @@
       signOut () {
         this.$http.secured.delete('/login')
           .then(response => {
+            this.$store.commit("logOutUser")
             delete localStorage.csrf
             delete localStorage.signedIn
             this.$router.replace('/')
@@ -49,6 +56,5 @@
   border: none;
   border-radius: 2px;
 }
-
 
 </style>
