@@ -48,6 +48,7 @@
           this.loginFailed(response)
           return
         }
+        this.$store.commit("logInUser")
         localStorage.csrf = response.data.csrf
         localStorage.signedIn = true
         this.error = ''
